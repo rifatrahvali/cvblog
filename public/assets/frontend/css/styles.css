@@ -1,0 +1,505 @@
+html {
+    overflow-y: scroll;
+    /* Her zaman dikey kaydırma çubuğunu göster */
+}
+
+body.modal-open {
+    overflow-y: unset !important; /* Kaydırma çubuğunu tutar */
+    padding-right: 0 !important; /* Sağ boşluğu sıfırlar */
+}
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+nav{
+    margin-bottom: 0;
+}
+nav.navbar {
+    margin-bottom: 0; /* Nav altında boşluk bırakma */
+}
+.navbar-nav {
+    display: flex;
+    justify-content: center; /* Ortaya hizalar */
+    flex-wrap: nowrap; /* Düzgün bir satırda kalmasını sağlar */
+    gap: 10px; /* Butonlar arasındaki boşluğu ayarlar */
+}
+
+.nav-item {
+    flex: 1; /* Butonları eşit genişlikte yayar */
+    text-align: center; /* Metni buton içinde ortalar */
+}
+
+.pages {
+    width: 100%; /* Butonları yatayda eşit yapar */
+}
+
+.line {
+    margin-top: 0;
+    border-bottom: 1px solid #bbc1c7; /* Çizgi rengi ve stili */
+    margin-bottom: 10px; /* Alt boşluğu düzenle */
+}
+/* Alt çizgi */
+/* .line {
+    border-bottom: 1px solid #bbc1c7;
+    margin-bottom: 20px;
+} */
+
+
+/* Özel buton stili: Kare köşe ve siyah kenarlık */
+.btn-square-black {
+    --bs-btn-border-radius: 0;
+    border: 1px solid #bbc1c7 !important;
+}
+
+/* Sosyal ikonlar */
+.social-icons {
+    text-align: center;
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: black;
+    padding-left: 5px;
+}
+
+/* Kart genel ayarı */
+.card {
+    border-radius: 0;
+    background-color: #f8f9fa;
+}
+
+/* Profil resmi */
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px solid #bbc1c7;
+    margin: 20px auto;
+    display: block;
+}
+
+
+/* Sayfalandırma genel stili */
+.pagination {
+    display: flex;
+    /* inline-flex yerine flex kullandık */
+    padding-left: 0;
+    list-style: none;
+    margin: 0 !important;
+    /* Ekstra boşlukları kaldırma */
+}
+
+/* Sayfalandırma elemanlarının stili */
+.pagination .page-item {
+    margin: 0;
+}
+
+/* Sayfalandırma bağlantıları */
+.pagination .page-item a.page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 0 !important;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #bbc1c7;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+/* Hover durumu */
+.pagination .page-item a.page-link:hover {
+    background-color: #e6e6e6;
+    color: #000;
+}
+
+/* Aktif sayfa */
+.pagination .page-item.active a.page-link {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+/* Devre dışı */
+.pagination .page-item.disabled a.page-link {
+    color: #ccc;
+    pointer-events: none;
+    background-color: #f1f1f1;
+}
+
+/* Destek formu girdi alanları için kare kenarlar */
+.support-form input {
+    border-radius: 0;
+}
+
+/* Destek formu butonları için kare kenarlar */
+.support-form button {
+    border-radius: 0;
+}
+
+
+/* Blog kategorisi bağlantı stili */
+.blog-card-category {
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #6c757d;
+    /* Gri renk */
+    text-decoration: none;
+    margin-bottom: 0.25rem;
+    /* Alt boşluğu azaltıldı (yarıya indirildi) */
+    margin-bottom: 0 !important;
+}
+
+.blog-card-category:hover {
+    color: #333;
+    /* Daha koyu gri */
+    text-decoration: underline;
+    /* Hover durumunda alt çizgi */
+}
+
+/* Zaman Bilgisi */
+.blog-card-time {
+    font-size: 0.8rem;
+    color: #aaa;
+    /* Açık gri */
+    margin-bottom: 0 !important;
+}
+
+/* Blog Kartı Genel Stil */
+.blog-card {
+    border-radius: 0 !important;
+    /* Hafif yuvarlak köşeler */
+    overflow: hidden;
+    /* Taşmaları önle */
+    transition: transform 0.2s ease-in-out;
+    /* Hover animasyonu */
+}
+
+/* Görsel Alanı */
+.blog-card img {
+    object-fit: cover;
+    /* Görselin düzgün kırpılması */
+    height: 100%;
+    /* Yüksekliği karta göre ayarla */
+    width: 100%;
+    /* Genişliği karta göre ayarla */
+    border-radius: 0 !important;
+    /* Hafif yuvarlak köşeler */
+}
+
+/* Başlık Stili */
+.blog-card-title {
+    text-decoration: none;
+    font-size: 1.25rem;
+    /* Orta boy yazı */
+    font-weight: bold;
+    /* Kalın başlık */
+    color: #000;
+    /* Siyah başlık */
+}
+
+/* Blog kart bağlantı başlığı */
+.blog-card-link {
+    font-size: 1.25rem;
+    /* Başlık boyutu */
+    font-weight: bold;
+    /* Kalın yazı */
+    color: black;
+    /* Siyah */
+    text-decoration: none;
+    /* Alt çizgiyi kaldır */
+    transition: color 0.3s ease;
+    /* Renk değişimi için animasyon */
+}
+
+.blog-card-link:hover {
+    color: #3e3737;
+    /* Hover durumunda daha koyu */
+    text-decoration: underline;
+    /* Hover durumunda alt çizgi */
+}
+
+/* Açıklama Metni */
+.blog-card-text {
+    font-size: 0.9rem;
+    /* Küçük açıklama */
+    color: #6c757d;
+    /* Gri renk */
+}
+
+.textSearchBlog {
+    border-radius: 0 !important;
+}
+
+.btnSearchBlog {
+    border-radius: 0 !important;
+}
+
+/* Mobil cihazlar için (ekran genişliği 576px'den küçük) */
+.header-section {
+    gap: 1rem;
+    /* Elemanlar arasında genel boşluk */
+}
+
+
+
+/* Blog Detay Kartı */
+.blog-detail-card {
+    border-radius: 0 !important;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+
+/* Blog Başlığı */
+.blog-detail-card .card-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Blog Görseli */
+.blog-detail-card img {
+    object-fit: cover;
+    border-radius: 0 !important;
+    height: 300px;
+    /* Görsel yüksekliği */
+    width: 100%;
+    /* Görsel genişliği */
+}
+
+/* Yazar Avatarı */
+.blog-detail-card img.rounded-circle {
+    border: 2px solid #ddd;
+}
+
+/* Kart Metni */
+.blog-detail-card .card-text {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Beğenme Butonu */
+.like-button {
+    font-size: 0.9rem;
+    /* Buton yazı boyutu */
+    padding: 5px 10px;
+    /* İç boşluklar */
+    border-radius: 0 !important;
+    /* Hafif yuvarlak köşeler */
+    transition: all 0.3s ease;
+    /* Hover efekti */
+}
+
+/* Buton Hover Durumu */
+.like-button:hover {
+    background-color: #0d6efd;
+    /* Mavi arka plan */
+    color: #fff;
+    /* Beyaz yazı rengi */
+    border-color: #0d6efd;
+    /* Sınır rengi */
+}
+
+/* Beğeni Sayısı */
+.like-count {
+    font-size: 0.9rem;
+    /* Yazı boyutu */
+    font-weight: bold;
+    /* Kalın yazı */
+    margin-left: 5px;
+    /* Sol boşluk */
+}
+
+/* Galeri Öğesi */
+.gallery-item {
+    border-radius: 0 !important;
+    /* Kare kenarlar */
+    object-fit: cover;
+    height: 250px;
+    /* Görsellerin yüksekliği */
+    width: 100%;
+    /* Genişlik */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Durumu */
+.gallery-item:hover {
+    transform: scale(1.05);
+    /* Hover durumunda büyüme efekti */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Hafif gölge efekti */
+}
+
+/* Modal Görseli */
+.modal-content {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 !important;
+    /* Kare kenarlar */
+    overflow: hidden;
+}
+
+.modal-body img {
+    object-fit: cover;
+    border-radius: 0 !important;
+    /* Kare kenarlar */
+    height: auto;
+    /* Görüntü oranını koru */
+}
+
+.card-reference {
+    border-radius: 0 !important;
+    overflow: hidden; /* Görsel sınırları taşmasın */
+    background-color: #fff; /* Beyaz arka plan */
+    border: 1px solid #ddd; /* Hafif gri kenarlık */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Hover efekti */
+}
+
+.card-reference:hover {
+    transform: scale(1.03); /* Hafif büyüme efekti */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Daha belirgin gölge */
+}
+
+.card-reference img {
+    object-fit: cover; /* Görseller düzgün kesilsin */
+    height: 200px; /* Görsel yüksekliği sabit */
+    width: 100%; /* Genişlik karta göre */
+}
+
+.card-reference .card-title {
+    font-weight: bold; /* Başlıklar daha belirgin */
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-reference .card-text {
+    font-size: 0.9rem; /* Daha küçük metin */
+    color: #6c757d; /* Gri renk */
+}
+
+/* Accordion başlıkları için köşeli stil */
+.accordion-button {
+    border-radius: 0 !important; /* Köşeleri kare yapar */
+    border: 2px solid #ddd; /* Dış çerçeve */
+    background-color: #f8f9fa; /* Arka plan rengi */
+    color: #000; /* Metin rengi */
+    font-weight: bold;
+}
+
+/* Accordion başlık hover ve aktif durumu */
+.accordion-button:hover, 
+.accordion-button:not(.collapsed) {
+    background-color: #e6e6e6; /* Hover ve aktif durum için renk */
+    border-color: #bbb; /* Çerçeve rengi */
+    color: #000; /* Aktif metin rengi */
+}
+
+/* Accordion içeriği (collapse) için köşeli stil */
+.accordion-collapse {
+    border: 2px solid #ddd; /* Çerçeve */
+    border-radius: 0 !important; /* Köşeleri kare yapar */
+}
+
+/* Accordion item için boşluk */
+.accordion-item {
+    border: none; /* Varsayılan çerçeveyi kaldırır */
+    margin-bottom: 1rem; /* Elemanlar arasında boşluk */
+}
+/* Hover ve aktif durum için arka plan ve kenarlık renklerini düzenle */
+.accordion-button:not(.collapsed) {
+    background-color: #f8f9fa; /* Aktif durum için arka plan */
+    border-color: #ddd; /* Çerçeve rengi */
+}
+
+/* Açık durumda içeriğin daha belirgin olması için */
+.accordion-button:not(.collapsed)::after {
+    filter: brightness(0.6); /* Simge rengi koyulaşır */
+    background-color: #f8f9fa; /* Aktif durum için arka plan */
+    border-color: #ddd; /* Çerçeve rengi */
+}
+/* Accordion başlığındaki mavi çerçeveyi kaldır */
+.accordion-button:focus {
+    outline: none; /* Mavi kenarlığı kaldırır */
+    box-shadow: none; /* Hover durumundaki gölgeyi kaldırır */
+}
+
+
+
+@media (max-width: 575.98px) {
+    .header-section {
+        flex-direction: column !important;
+        /* Mobilde dikey hizalama */
+    }
+
+    .header-section .pagination {
+        justify-content: center;
+        /* Sayfalama merkezde */
+    }
+
+    .btnSearchBlog {
+        width: 200px;
+        border-radius: 0 !important;
+    }
+
+    /* Modal Görseli */
+    .modal-content {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0 !important;
+        /* Kare kenarlar */
+        overflow: hidden;
+    }
+}
+
+/* Tablet cihazlar için (ekran genişliği 576px ile 768px arası) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .header-section {
+        flex-wrap: wrap;
+        /* Sıkışıklıkta alt satıra geç */
+        gap: 1.5rem;
+        /* Tabletler için daha geniş boşluk */
+    }
+
+    .header-section .pagination {
+        justify-content: flex-end;
+        /* Tablet için sağa hizalama */
+    }
+
+    .btnSearchBlog {
+        width: 200px;
+        border-radius: 0 !important;
+    }
+
+    /* Modal Görseli */
+    .modal-content {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0 !important;
+        /* Kare kenarlar */
+        overflow: hidden;
+    }
+}
+
+/* Geniş ekranlar için varsayılan davranış */
+@media (min-width: 768px) {
+    .header-section {
+        flex-direction: row;
+        /* Yatay hizalama */
+        gap: 2rem;
+        /* Daha geniş boşluk */
+    }
+
+    .header-section .pagination {
+        justify-content: flex-end;
+    }
+}

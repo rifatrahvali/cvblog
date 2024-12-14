@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - Title</title>
+
+  <link href="../assets/admin/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/admin/css/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../assets/admin/css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="navbar sticky-top bg-dark flex-md-nowrap p-0">
+    <!-- Sayfanın üst kısmında sabit navbar. -->
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">rahvali.dev</a>
+    <!-- Navbar başlık kısmı. -->
+    <!-- Sidebar toggle -->
+    <ul class="navbar-nav flex-row d-md-none">
+      <li class="nav-item text-nowrap">
+        <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu"
+          aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <!-- Mobil cihazlarda sidebar açma/kapatma butonu. -->
+          <i class="bi bi-list-ul"></i>
+        </button>
+      </li>
+    </ul>
+  </header>
+
+  <!-- side bar & Mobile - İÇERİK-->
+  <div class="container-fluid">
+    <div class="row">
+      <!-- SIDEBAR -->
+      <div class="sidebar col-md-3 col-lg-2 p-0 ">
+        <div class="offcanvas-md offcanvas-end " tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="sidebarMenuLabel">rahvali</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu"
+              aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 active" href="management-cv.html">
+                  <i class="bi bi-file-earmark-person mb-1"></i>
+                  CV - Yönetimi
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="management-blog.html">
+                  <i class="bi bi-pencil-square mb-1"></i>
+                  Yazı - Yönetimi
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="management-gallery.html">
+                  <i class="bi bi-camera mb-1"></i>
+                  Galeri - Yönetimi
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="management-support.html">
+                  <i class="bi bi-chat-left-quote mb-1"></i>
+                  Destek - Yönetimi
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="management-reference.html">
+                  <i class="bi bi-folder-check mb-1"></i>
+                  Referanslar - Yönetimi
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                  <i class="bi bi-people-fill  mb-1"></i>
+                  Kullanıcı Yönetimi
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                  <i class="bi bi-graph-up-arrow mb-1"></i>
+                  Raporlar
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                  <i class="bi bi-gear-wide-connected mb-1"></i>
+                  Settings
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                  <i class="bi bi-door-closed mb-1"></i>
+                  Oturumu Kapat
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- İÇERİKLER -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <!-- İÇERİK BAŞLIK -->
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h2>Sertifika Bilgileri Kartı</h2>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+              <a href="management-cv-certificate-card-add.html" class="btn btn-secondary">Yeni Ekle</a>
+              <button type="button" class="btn btn-sm btn-outline-secondary">
+                <i class="bi bi-file-earmark-excel-fill"></i> Dışa aktar
+              </button>
+              <a href="management-cv.html" class="btn btn-secondary">Geri Dön</a>
+            </div>
+          </div>
+        </div>
+        <!-- İÇERİK GÖVDE -->
+        <div class="row gy-4">
+          <div class="table-responsive">
+            <table class="table table align-middle">
+              <thead>
+                <th>#</th>
+                <th>Sertifika Adı</th>             
+                <th>Kurum</th>
+                <th>Alan</th>
+                <th>İşlem</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>ISO 27001:2022</td>
+                  <td>Sisbel</td>
+                  <td>Internal Auditor</td>
+                  <td class="action-buttons">
+                    <a href="https://rifatrahvali.com.tr/ron/profile-card/1/edit"
+                      class="btn btn-sm btn-warning w-100">Düzenle</a>
+                    <form action="https://rifatrahvali.com.tr/ron/profile-card/1" method="POST" style="display:inline;">
+                      <input type="hidden" name="_token" value="L3rHCyFvI1lmyHNrTALomi7EpesFb7yzt241Jsvz"
+                        autocomplete="off"> <input type="hidden" name="_method" value="DELETE"> <button type="submit"
+                        class="btn btn-sm btn-danger w-100 mt-1">Sil</button>
+                    </form>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Siber Güvenlik - Giriş</td>
+                  <td>Beykent Üniversitesi</td>
+                  <td>Siber Güvenlik</td>
+                  <td class="action-buttons">
+                    <a href="https://rifatrahvali.com.tr/ron/profile-card/1/edit"
+                      class="btn btn-sm btn-warning w-100">Düzenle</a>
+                    <form action="https://rifatrahvali.com.tr/ron/profile-card/1" method="POST" style="display:inline;">
+                      <input type="hidden" name="_token" value="L3rHCyFvI1lmyHNrTALomi7EpesFb7yzt241Jsvz"
+                        autocomplete="off"> <input type="hidden" name="_method" value="DELETE"> <button type="submit"
+                        class="btn btn-sm btn-danger w-100 mt-1">Sil</button>
+                    </form>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Python ile Backend - Django</td>
+                  <td>Ismek</td>
+                  <td>Backend</td>
+                  <td class="action-buttons">
+                    <a href="https://rifatrahvali.com.tr/ron/profile-card/1/edit"
+                      class="btn btn-sm btn-warning w-100">Düzenle</a>
+                    <form action="https://rifatrahvali.com.tr/ron/profile-card/1" method="POST" style="display:inline;">
+                      <input type="hidden" name="_token" value="L3rHCyFvI1lmyHNrTALomi7EpesFb7yzt241Jsvz"
+                        autocomplete="off"> <input type="hidden" name="_method" value="DELETE"> <button type="submit"
+                        class="btn btn-sm btn-danger w-100 mt-1">Sil</button>
+                    </form>
+                  </td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Network Temelleri</td>
+                  <td>BTK Akademi</td>
+                  <td>Network</td>
+                  <td class="action-buttons">
+                    <a href="https://rifatrahvali.com.tr/ron/profile-card/1/edit"
+                      class="btn btn-sm btn-warning w-100">Düzenle</a>
+                    <form action="https://rifatrahvali.com.tr/ron/profile-card/1" method="POST" style="display:inline;">
+                      <input type="hidden" name="_token" value="L3rHCyFvI1lmyHNrTALomi7EpesFb7yzt241Jsvz"
+                        autocomplete="off"> <input type="hidden" name="_method" value="DELETE"> <button type="submit"
+                        class="btn btn-sm btn-danger w-100 mt-1">Sil</button>
+                    </form>
+                  </td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Fortigate</td>
+                  <td>BTK Akademi</td>
+                  <td>Network</td>
+                  <td class="action-buttons">
+                    <a href="https://rifatrahvali.com.tr/ron/profile-card/1/edit"
+                      class="btn btn-sm btn-warning w-100">Düzenle</a>
+                    <form action="https://rifatrahvali.com.tr/ron/profile-card/1" method="POST" style="display:inline;">
+                      <input type="hidden" name="_token" value="L3rHCyFvI1lmyHNrTALomi7EpesFb7yzt241Jsvz"
+                        autocomplete="off"> <input type="hidden" name="_method" value="DELETE"> <button type="submit"
+                        class="btn btn-sm btn-danger w-100 mt-1">Sil</button>
+                    </form>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/admin/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/admin/js/dashboard.js"></script>
+</body>
+
+</html>
