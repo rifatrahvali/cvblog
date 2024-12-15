@@ -11,6 +11,8 @@ use App\Models\Dashboard\CV\LearnedFromExperienceCard;
 use App\Models\Dashboard\CV\ProfileCard;
 use App\Models\Dashboard\CV\CourseCard;
 use App\Models\Dashboard\CV\CertificateCard;
+use App\Models\Dashboard\SiteSetting;
+
 use Illuminate\Http\Request;
 
 class CVPageController extends Controller
@@ -25,6 +27,7 @@ class CVPageController extends Controller
         $learnedFromEducationCard = LearnedFromEducationCard::all(); // Tüm kayıtları çekiyoruz.
         $certificateCard = CertificateCard::all(); // Sertifika bilgisi, Tüm kayıtları çekiyoruz.
         $courseCard = CourseCard::all(); // Tüm kayıtları çekiyoruz.
+        $siteSettings = SiteSetting::first();
         return view("frontend.pages.cv.cv", compact(
             'profileCard', 
             'aboutCard', 
@@ -33,7 +36,8 @@ class CVPageController extends Controller
             'educationCard', 
             'learnedFromEducationCard',
             'certificateCard',
-            'courseCard'
+            'courseCard',
+            'siteSettings'
         ));
     }
 }

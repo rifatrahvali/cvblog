@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Dashboard\SiteSettingController;
 use App\Http\Controllers\Frontend\BlogPageController;
 use App\Http\Controllers\Frontend\CVPageController;
 use App\Http\Controllers\Frontend\GalleryPageController;
@@ -24,6 +25,9 @@ use App\Http\Controllers\Dashboard\CV\LearnedFromEducationCardController;
 Route::prefix('dashboard')->group(function () {
     Route::get("/login", [LoginController::class, 'index'])->name("admin.dashboard.login");
     Route::get("/register", [RegisterController::class, 'index'])->name("admin.dashboard.register");
+
+    Route::get('/site-settings/edit', [SiteSettingController::class, 'edit'])->name('site.settings.edit');
+    Route::post('/site-settings/update', [SiteSettingController::class, 'update'])->name('site.settings.update');
 
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 

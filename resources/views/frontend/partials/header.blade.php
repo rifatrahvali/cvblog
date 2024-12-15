@@ -2,8 +2,8 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand d-flex" href="#">
-                <h1>Rahvalı</h1>
-                <h4>#dev</h4>
+                <h1>{{ $siteSettings->header_title ?? 'Default Title' }}</h1>
+                <h4>{{ $siteSettings->header_subtitle ?? 'Default Subtitle' }}</h4>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
