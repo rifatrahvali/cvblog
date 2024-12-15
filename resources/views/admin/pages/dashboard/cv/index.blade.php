@@ -32,7 +32,7 @@
     <div class="custom-card text-center">
         <div class="custom-card-body">
             <div class="custom-card-title">
-                <a href="management-cv-about-card.html">
+                <a href="{{ route('dashboard.cv.about') }}">
                     <h3 class="fs-2"><i class="bi bi-info-circle-fill me-4"></i>Hakkımda Kartı</h3>
                 </a>
             </div>

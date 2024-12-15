@@ -43,6 +43,12 @@ Route::prefix('dashboard')->group(function () {
     Route::delete('/cv/profile/{id}', [ProfileCardController::class, 'destroy'])->name('dashboard.cv.profile.destroy');
 
     Route::get('/cv/about', [AboutCardController::class, 'index'])->name('dashboard.cv.about');
+    Route::get('/cv/about/create', [AboutCardController::class, 'create'])->name('dashboard.cv.about.create');
+    Route::post('/cv/about', [AboutCardController::class, 'store'])->name('dashboard.cv.about.store');
+    Route::get('/cv/about/{id}/edit', [AboutCardController::class, 'edit'])->name('dashboard.cv.about.edit');
+    Route::put('/cv/about/{id}', [AboutCardController::class, 'update'])->name('dashboard.cv.about.update');
+    Route::delete('/cv/about/{id}', [AboutCardController::class, 'destroy'])->name('dashboard.cv.about.destroy');
+
     Route::get('/cv/certificates', [CertificateCardController::class, 'index'])->name('dashboard.cv.certificates');
     Route::get('/cv/courses', [CourseCardController::class, 'index'])->name('dashboard.cv.courses');
     Route::get('/cv/experiences', [ExperienceCardController::class, 'index'])->name('dashboard.cv.experiences');
@@ -54,9 +60,9 @@ Route::prefix('dashboard')->group(function () {
 // Oturum
 
 // Ziyaretçi
-Route::get("/", [CVPageController::class,'index'])->name("cv.index");
-Route::get("/blog", [BlogPageController::class,'index'])->name("blog.index");
-Route::get("/gallery", [GalleryPageController::class,'index'])->name("gallery.index");
-Route::get("/support", [SupportPageController::class,'index'])->name("support.index");
-Route::get("/reference", [ReferencePageController::class,'index'])->name("reference.index");
+Route::get("/", [CVPageController::class, 'index'])->name("cv.index");
+Route::get("/blog", [BlogPageController::class, 'index'])->name("blog.index");
+Route::get("/gallery", [GalleryPageController::class, 'index'])->name("gallery.index");
+Route::get("/support", [SupportPageController::class, 'index'])->name("support.index");
+Route::get("/reference", [ReferencePageController::class, 'index'])->name("reference.index");
 
