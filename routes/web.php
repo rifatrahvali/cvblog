@@ -1,18 +1,30 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Frontend\BlogPageController;
+use App\Http\Controllers\Frontend\CVPageController;
+use App\Http\Controllers\Frontend\GalleryPageController;
+use App\Http\Controllers\Frontend\ReferencePageController;
+use App\Http\Controllers\Frontend\SupportPageController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\CV\ProfileCardController;
-use App\Http\Controllers\Cv\AboutCardController;
-use App\Http\Controllers\Cv\CertificateCardController;
-use App\Http\Controllers\Cv\CourseCardController;
-use App\Http\Controllers\Cv\ExperienceCardController;
-use App\Http\Controllers\Cv\EducationCardController;
-use App\Http\Controllers\Cv\LearnedFromExperienceCardController;
-use App\Http\Controllers\Cv\LearnedFromEducationCardController;
+use App\Http\Controllers\Dashboard\CV\AboutCardController;
+use App\Http\Controllers\Dashboard\CV\CertificateCardController;
+use App\Http\Controllers\Dashboard\CV\CourseCardController;
+use App\Http\Controllers\Dashboard\CV\ExperienceCardController;
+use App\Http\Controllers\Dashboard\CV\EducationCardController;
+use App\Http\Controllers\Dashboard\CV\LearnedFromExperienceCardController;
+use App\Http\Controllers\Dashboard\CV\LearnedFromEducationCardController;
+
+
 
 // Dashboard Rotaları
 Route::prefix('dashboard')->group(function () {
+    Route::get("/login", [LoginController::class, 'index'])->name("admin.dashboard.login");
+    Route::get("/register", [RegisterController::class, 'index'])->name("admin.dashboard.register");
+
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     // Dashboard alt bölümleri
@@ -40,35 +52,11 @@ Route::prefix('dashboard')->group(function () {
 });
 
 // Oturum
-Route::get("/login", function () {
-    return view("admin.pages.auth.page-login");
-})->name("admin.dashboard.login");
-
-Route::get("/register", function () {
-    return view("admin.pages.auth.page-register");
-})->name("admin.dashboard.register");
 
 // Ziyaretçi
-Route::get("/", function () {
-    return view("frontend.layouts.layout-frontend-cv");
-})->name("cv.index");
+Route::get("/", [CVPageController::class,'index'])->name("cv.index");
+Route::get("/blog", [BlogPageController::class,'index'])->name("blog.index");
+Route::get("/gallery", [GalleryPageController::class,'index'])->name("gallery.index");
+Route::get("/support", [SupportPageController::class,'index'])->name("support.index");
+Route::get("/reference", [ReferencePageController::class,'index'])->name("reference.index");
 
-Route::get("/blog", function () {
-    return view("frontend.layouts.layout-frontend-blog");
-})->name("blog.index");
-
-Route::get("/gallery", function () {
-    return view("frontend.layouts.layout-frontend-gallery");
-})->name("gallery.index");
-
-Route::get("/support", function () {
-    return view("frontend.layouts.layout-frontend-support");
-})->name("support.index");
-
-Route::get("/reference", function () {
-    return view("frontend.layouts.layout-frontend-reference");
-})->name("reference.index");
-
-Route::get('/', function () {
-    return view('welcome');
-});
