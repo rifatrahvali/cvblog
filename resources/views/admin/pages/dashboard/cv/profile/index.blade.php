@@ -21,7 +21,7 @@
             <thead>
                 <th>Profil Resmi</th>
                 <th>İsim</th>
-                <th>Kullanıcı Adı</th>
+                <th>Ünvan</th>
                 <th>E-posta</th>
                 <th>İşlemler</th>
             </thead>
@@ -29,18 +29,19 @@
                 @foreach($profileCards as $card)
                     <tr>
                         <td>
-                            @if($card->profile_image)
-                                <img src="{{ asset('storage/' . $card->profile_image) }}" alt="Profil Resmi" width="50">
+                            @if($card->profil_image)
+                                <img src="{{ asset('storage/' . $card->profil_image) }}" style="width: 50px; height: 50px;">
                             @else
-                                Yok
+                            YOK
                             @endif
                         </td>
-                        <td>{{ $card->name }}</td>
-                        <td>{{ $card->username }}</td>
+                        <td>{{ $card->fullname }}</td>
+                        <td>{{ $card->title }}</td>
                         <td>{{ $card->email }}</td>
                         <td>
-                            <a href="{{ route('profile-card.edit', $card->id) }}" class="btn btn-warning btn-sm">Düzenle</a>
-                            <form action="{{ route('profile-card.destroy', $card->id) }}" method="POST"
+                            <a href="{{ route('dashboard.cv.profile.edit', $card->id) }}"
+                                class="btn btn-warning btn-sm">Düzenle</a>
+                            <form action="{{ route('dashboard.cv.profile.destroy', $card->id) }}" method="POST"
                                 style="display: inline-block;">
                                 @csrf
                                 @method('DELETE')

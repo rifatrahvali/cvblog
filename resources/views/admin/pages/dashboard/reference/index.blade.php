@@ -1,11 +1,11 @@
 @extends('admin.layouts.layout-admin')
 
 @section('dashboard-title')
-Özet
+referans
 @endsection
 
 @section('dashboard-content-title')
-Özet
+referans
 @endsection
 
 @section('dashboard-content-direct-link')

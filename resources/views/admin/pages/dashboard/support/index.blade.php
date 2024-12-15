@@ -1,11 +1,11 @@
 @extends('admin.layouts.layout-admin')
 
 @section('dashboard-title')
-Özet
+destek
 @endsection
 
 @section('dashboard-content-title')
-Özet
+destek
 @endsection
 
 @section('dashboard-content-direct-link')

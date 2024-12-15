@@ -1,11 +1,11 @@
 @extends('admin.layouts.layout-admin')
 
 @section('dashboard-title')
-Özet
+Blog Yönetimi
 @endsection
 
 @section('dashboard-content-title')
-Özet
+Blog Yönetimi
 @endsection
 
 @section('dashboard-content-direct-link')
@@ -25,6 +25,6 @@
 @endsection
 
 @section('dashboard-content')
-<p>Hoş geldiniz! Bu yönetim panelinin blog bölüm sayfasıdır.</p>
+<p>Hoş geldiniz! Bu yönetim panelinin blog ve kategori bölüm sayfasıdır.</p>
 
 @endsection
