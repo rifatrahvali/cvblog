@@ -73,7 +73,7 @@
     <div class="custom-card text-center">
         <div class="custom-card-body">
             <div class="custom-card-title">
-                <a href="management-cv-about-card.html">
+                <a href="{{ route('dashboard.cv.education.index') }}">
                     <h3 class="fs-2"><i class="bi bi-folder me-4"></i>Eğitim Bilgileri Kartı</h3>
                 </a>
             </div>
@@ -87,7 +87,7 @@
     <div class="custom-card text-center">
         <div class="custom-card-body">
             <div class="custom-card-title">
-                <a href="management-cv-about-card.html">
+                <a href="{{route('dashboard.cv.learned-education.index')}}">
                     <h3 class="fs-2"><i class="bi bi-folder-plus me-4"></i>Eğitim
                         Sürecindeki Deneyimler Kartı</h3>
                 </a>

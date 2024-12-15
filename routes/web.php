@@ -63,8 +63,23 @@ Route::prefix('dashboard')->group(function () {
     Route::put('/cv/learned-experiences/{id}', [LearnedFromExperienceCardController::class, 'update'])->name('dashboard.cv.learned-experiences.update');
     Route::delete('/cv/learned-experiences/{id}', [LearnedFromExperienceCardController::class, 'destroy'])->name('dashboard.cv.learned-experiences.destroy');
 
-    Route::get('/cv/education', [EducationCardController::class, 'index'])->name('dashboard.cv.education');
-    Route::get('/cv/learned-education', [LearnedFromEducationCardController::class, 'index'])->name('dashboard.cv.learned-education');
+    // Eğitim Kartları Rotaları
+    Route::get('/education', [EducationCardController::class, 'index'])->name('dashboard.cv.education.index');
+    Route::get('/education/create', [EducationCardController::class, 'create'])->name('dashboard.cv.education.create');
+    Route::post('/education', [EducationCardController::class, 'store'])->name('dashboard.cv.education.store');
+    Route::get('/education/{id}/edit', [EducationCardController::class, 'edit'])->name('dashboard.cv.education.edit');
+    Route::put('/education/{id}', [EducationCardController::class, 'update'])->name('dashboard.cv.education.update');
+    Route::delete('/education/{id}', [EducationCardController::class, 'destroy'])->name('dashboard.cv.education.destroy');
+
+    // Eğitimden Öğrenilenler Rotaları
+    Route::get('/learned-education', [LearnedFromEducationCardController::class, 'index'])->name('dashboard.cv.learned-education.index');
+    Route::get('/learned-education/create', [LearnedFromEducationCardController::class, 'create'])->name('dashboard.cv.learned-education.create');
+    Route::post('/learned-education', [LearnedFromEducationCardController::class, 'store'])->name('dashboard.cv.learned-education.store');
+    Route::get('/learned-education/{id}/edit', [LearnedFromEducationCardController::class, 'edit'])->name('dashboard.cv.learned-education.edit');
+    Route::put('/learned-education/{id}', [LearnedFromEducationCardController::class, 'update'])->name('dashboard.cv.learned-education.update');
+    Route::delete('/learned-education/{id}', [LearnedFromEducationCardController::class, 'destroy'])->name('dashboard.cv.learned-education.destroy');
+
+    
     Route::get('/cv/certificates', [CertificateCardController::class, 'index'])->name('dashboard.cv.certificates');
     Route::get('/cv/courses', [CourseCardController::class, 'index'])->name('dashboard.cv.courses');
 });
