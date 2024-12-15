@@ -45,7 +45,7 @@
     <div class="custom-card text-center">
         <div class="custom-card-body">
             <div class="custom-card-title">
-                <a href="management-cv-about-card.html">
+                <a href="{{route('dashboard.cv.experiences')}}">
                     <h3 class="fs-2"><i class="bi bi-building me-4"></i>Şirket Deneyimi Kartı</h3>
                 </a>
             </div>
@@ -59,7 +59,7 @@
     <div class="custom-card text-center">
         <div class="custom-card-body">
             <div class="custom-card-title">
-                <a href="management-cv-about-card.html">
+                <a href="{{route('dashboard.cv.learned-experiences')}}">
                     <h3 class="fs-2"><i class="bi bi-building-add me-4"></i>Şirket İçi
                         Çalışma Deneyimi Kartı</h3>
                 </a>

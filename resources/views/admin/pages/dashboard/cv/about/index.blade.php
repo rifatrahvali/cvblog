@@ -19,8 +19,9 @@
             <tbody>
                 @foreach($aboutCards as $card)
                     <tr>
-                        <td>{{ $card->description }}</td>
-                        <td>
+                        <td class="p-4">{!! $card->description !!}</td>
+                        
+                        <td class="p-4">
                             <a href="{{ route('dashboard.cv.about.edit', $card->id) }}" class="btn btn-sm btn-warning">Düzenle</a>
                             <form action="{{ route('dashboard.cv.about.destroy', $card->id) }}" method="POST" style="display:inline;">
                                 @csrf

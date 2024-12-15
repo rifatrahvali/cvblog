@@ -6,31 +6,25 @@
                 <p class="card-text">
                     <b>Kurumsal IT Yapısı</b>
                 </p>
-                <p class="card-text">
-                    <b>Network</b> | Kurulum &amp; Yönetim <br>
-                    <small class="text-muted">
-                        Forti, Juniper
-                    </small>
-                </p>
-                <p class="card-text">
-                    <b>Microsoft 365 Admin Center</b> | Kurulum &amp; Yönetim <br>
-                    <small class="text-muted">
-                        Kullanıcılar, Gruplar, Email, Defender
-                    </small>
-                </p>
-                <p class="card-text">
-                    <b>Yazılım</b> | Destek <br>
-                    <small class="text-muted">
-                        Dynamics CRM, Navision, LOGO
-                    </small>
-                </p>
-                <p class="card-text">
-                    <b>Sistem</b> | Kurulum &amp; Yönetim <br>
-                    <small class="text-muted">
-                        Active Directory, File Server, Domain
-                    </small>
-                </p>
+                @if (!empty($learnedFromExperiencesCard) && $learnedFromExperiencesCard->count())
+                        @foreach ($learnedFromExperiencesCard as $lfec)
+                                <p class="card-text">
+                                    <b>{{ $lfec->section ?? 'Bölüm Bilgisi Belirtilmemiş' }}</b> |
+                                    {{ $lfec->sentence ?? 'Cümle Bilgisi Yok' }} <br>
+                                    <small class="text-muted">
+                                        {{ is_array($lfec->work_tags)
+                            ? implode(', ', $lfec->work_tags)
+                            : ($lfec->work_tags ?? 'Etiket Bilgisi Yok') }}
+                                    </small>
+                                </p>
+                        @endforeach
+                @else
+                    <p class="text-muted">Henüz öğrenim bilgisi eklenmedi.</p>
+                @endif
+
             </div>
         </div>
     </div>
 </div>
+
+

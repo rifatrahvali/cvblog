@@ -1,4 +1,4 @@
-<div class="card mb-5 custom-card w-100">
+<div class="card mb-3 custom-card w-100">
     <div class="bg-light mt-1">
         @if(optional($profileCard)->profil_image)
             <img src="{{ asset('storage/' . $profileCard->profil_image) }}" alt="Profil Resmi"

@@ -49,12 +49,24 @@ Route::prefix('dashboard')->group(function () {
     Route::put('/cv/about/{id}', [AboutCardController::class, 'update'])->name('dashboard.cv.about.update');
     Route::delete('/cv/about/{id}', [AboutCardController::class, 'destroy'])->name('dashboard.cv.about.destroy');
 
-    Route::get('/cv/certificates', [CertificateCardController::class, 'index'])->name('dashboard.cv.certificates');
-    Route::get('/cv/courses', [CourseCardController::class, 'index'])->name('dashboard.cv.courses');
     Route::get('/cv/experiences', [ExperienceCardController::class, 'index'])->name('dashboard.cv.experiences');
+    Route::get('/cv/experiences/create', [ExperienceCardController::class, 'create'])->name('dashboard.cv.experiences.create');
+    Route::post('/cv/experiences', [ExperienceCardController::class, 'store'])->name('dashboard.cv.experiences.store');
+    Route::get('/cv/experiences/{id}/edit', [ExperienceCardController::class, 'edit'])->name('dashboard.cv.experiences.edit');
+    Route::put('/cv/experiences/{id}', [ExperienceCardController::class, 'update'])->name('dashboard.cv.experiences.update');
+    Route::delete('/cv/experiences/{id}', [ExperienceCardController::class, 'destroy'])->name('dashboard.cv.experiences.destroy');
+
     Route::get('/cv/learned-experiences', [LearnedFromExperienceCardController::class, 'index'])->name('dashboard.cv.learned-experiences');
+    Route::get('/cv/learned-experiences/create', [LearnedFromExperienceCardController::class, 'create'])->name('dashboard.cv.learned-experiences.create');
+    Route::post('/cv/learned-experiences', [LearnedFromExperienceCardController::class, 'store'])->name('dashboard.cv.learned-experiences.store');
+    Route::get('/cv/learned-experiences/{id}/edit', [LearnedFromExperienceCardController::class, 'edit'])->name('dashboard.cv.learned-experiences.edit');
+    Route::put('/cv/learned-experiences/{id}', [LearnedFromExperienceCardController::class, 'update'])->name('dashboard.cv.learned-experiences.update');
+    Route::delete('/cv/learned-experiences/{id}', [LearnedFromExperienceCardController::class, 'destroy'])->name('dashboard.cv.learned-experiences.destroy');
+
     Route::get('/cv/education', [EducationCardController::class, 'index'])->name('dashboard.cv.education');
     Route::get('/cv/learned-education', [LearnedFromEducationCardController::class, 'index'])->name('dashboard.cv.learned-education');
+    Route::get('/cv/certificates', [CertificateCardController::class, 'index'])->name('dashboard.cv.certificates');
+    Route::get('/cv/courses', [CourseCardController::class, 'index'])->name('dashboard.cv.courses');
 });
 
 // Oturum

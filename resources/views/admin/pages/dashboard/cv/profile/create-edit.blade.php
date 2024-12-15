@@ -8,7 +8,7 @@
 
 @section('dashboard-content-direct-link-name', 'Yeni Profil Kartı Ekle')
 
-@section('dashboard-content-direct-back'){{ route('dashboard.cv.profile') }}@endsection
+@section('dashboard-content-direct-back'){{ route('dashboard.cv.learned-experiences') }}@endsection
 
 @section('dashboard-content-direct-back-name')Geri Dön @endsection
 
