@@ -79,9 +79,22 @@ Route::prefix('dashboard')->group(function () {
     Route::put('/learned-education/{id}', [LearnedFromEducationCardController::class, 'update'])->name('dashboard.cv.learned-education.update');
     Route::delete('/learned-education/{id}', [LearnedFromEducationCardController::class, 'destroy'])->name('dashboard.cv.learned-education.destroy');
 
-    
+
+    // Sertifika Kartları Rotaları
     Route::get('/cv/certificates', [CertificateCardController::class, 'index'])->name('dashboard.cv.certificates');
+    Route::get('/cv/certificates/create', [CertificateCardController::class, 'create'])->name('dashboard.cv.certificates.create');
+    Route::post('/cv/certificates', [CertificateCardController::class, 'store'])->name('dashboard.cv.certificates.store');
+    Route::get('/cv/certificates/{id}/edit', [CertificateCardController::class, 'edit'])->name('dashboard.cv.certificates.edit');
+    Route::put('/cv/certificates/{id}', [CertificateCardController::class, 'update'])->name('dashboard.cv.certificates.update');
+    Route::delete('/cv/certificates/{id}', [CertificateCardController::class, 'destroy'])->name('dashboard.cv.certificates.destroy');
+
+    // Kurs Kartları Rotaları
     Route::get('/cv/courses', [CourseCardController::class, 'index'])->name('dashboard.cv.courses');
+    Route::get('/cv/courses/create', [CourseCardController::class, 'create'])->name('dashboard.cv.courses.create');
+    Route::post('/cv/courses', [CourseCardController::class, 'store'])->name('dashboard.cv.courses.store');
+    Route::get('/cv/courses/{id}/edit', [CourseCardController::class, 'edit'])->name('dashboard.cv.courses.edit');
+    Route::put('/cv/courses/{id}', [CourseCardController::class, 'update'])->name('dashboard.cv.courses.update');
+    Route::delete('/cv/courses/{id}', [CourseCardController::class, 'destroy'])->name('dashboard.cv.courses.destroy');
 });
 
 // Oturum

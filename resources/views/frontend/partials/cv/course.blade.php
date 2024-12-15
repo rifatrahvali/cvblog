@@ -2,27 +2,21 @@
     <div class="card text-end bg-light custom-card">
         <div class="card-body">
             <h3 class="card-title">Kurs</h3>
-            <p class="card-text">
-                <b>İngilizce</b> <br>
-                Beykent Üniversitesi <br>
-                <small class="text-muted">
-                    B1 Seviye
-                </small>
-            </p>
-            <p class="card-text">
-                <b>Full Stack Developer</b> <br>
-                Udemy <br>
-                <small class="text-muted">
-                    HTML, CSS, JavaScript, Node.js
-                </small>
-            </p>
-            <p class="card-text">
-                <b>IOS14 - Swift5 : Başlangıçtan İleri Seviye Mobil Uygulama</b> <br>
-                Udemy <br>
-                <small class="text-muted">
-                    Swift, Swift UI, Firebase, GIT, API, JSON
-                </small>
-            </p>
+            @if (!empty($courseCard) && $courseCard->count())
+                @foreach ($courseCard as $courses)
+                    <p class="card-text">
+                        <b>{{ $courses->course_name ?? 'Kurs Adı Belirtilmemiş' }}</b> <br>
+                        {{ $courses->institution ?? 'Kurum Belirtilmemiş' }} <br>
+                        <small class="text-muted">
+                            {{ is_string($courses->additional_achievements) 
+                                ? implode(', ', json_decode($courses->additional_achievements, true) ?? [])
+                                : 'Ek Başarılar Yok' }}
+                        </small>
+                    </p>
+                @endforeach
+            @else
+                <p class="text-muted">Henüz kurs bilgisi eklenmedi.</p>
+            @endif 
         </div>
     </div>
 </div>

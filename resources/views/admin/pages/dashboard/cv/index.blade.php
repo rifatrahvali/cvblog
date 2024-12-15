@@ -101,7 +101,7 @@
     <div class="custom-card text-center">
         <div class="custom-card-body">
             <div class="custom-card-title">
-                <a href="management-cv-about-card.html">
+                <a href="{{ route('dashboard.cv.courses') }}">
                     <h3 class="fs-2"><i class="bi bi-file-text me-4"></i>
                         Kurslar Kartı</h3>
                 </a>
@@ -115,7 +115,7 @@
     <div class="custom-card text-center">
         <div class="custom-card-body">
             <div class="custom-card-title">
-                <a href="management-cv-about-card.html">
+                <a href="{{ route('dashboard.cv.certificates') }}">
                     <h3 class="fs-2"><i class="bi bi-file-richtext me-4"></i>
                         Sertifikalar Kartı</h3>
                 </a>

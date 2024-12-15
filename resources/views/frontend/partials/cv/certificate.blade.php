@@ -2,26 +2,16 @@
     <div class="card bg-light custom-card">
         <div class="card-body">
             <h3 class="card-title">Sertifikalar</h3>
-            <p class="card-text">
-                <b>ISO 27001:2022</b> | Internal Auditor<br>
-                <small class="text-muted">Sisbel</small>
-            </p>
-            <p class="card-text">
-                <b>Siber Güvenlik - Giriş</b> | Siber Güvenlik<br>
-                <small class="text-muted">Beykent Üniversitesi</small>
-            </p>
-            <p class="card-text">
-                <b>Python ile Backend - Django</b> | Backend<br>
-                <small class="text-muted">Ismek</small>
-            </p>
-            <p class="card-text">
-                <b>Network Temelleri</b> | Network<br>
-                <small class="text-muted">BTK Akademi</small>
-            </p>
-            <p class="card-text">
-                <b>Fortigate</b> | Network<br>
-                <small class="text-muted">BTK Akademi</small>
-            </p>
+            @if (!empty($certificateCard) && $certificateCard->count())
+                @foreach ($certificateCard as $certificate)
+                    <p class="card-text">
+                        <b>{{ $certificate->certificate_name ?? '' }}</b> | {{ $certificate->field ?? '' }}<br>
+                        <small class="text-muted">{{ $certificate->institution ?? '' }}</small>
+                    </p>
+                @endforeach
+            @else
+                <p class="text-muted"></p>
+            @endif
         </div>
     </div>
 </div>

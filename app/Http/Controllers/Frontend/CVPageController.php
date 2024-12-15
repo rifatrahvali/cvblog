@@ -23,6 +23,17 @@ class CVPageController extends Controller
         $learnedFromExperiencesCard = LearnedFromExperienceCard::all(); // Tüm kayıtları çekiyoruz.
         $educationCard = EducationCard::all(); // Eğitim bilgisi, Tüm kayıtları çekiyoruz.
         $learnedFromEducationCard = LearnedFromEducationCard::all(); // Tüm kayıtları çekiyoruz.
-        return view("frontend.pages.cv.cv", compact('profileCard', 'aboutCard', 'experienceCard', 'learnedFromExperiencesCard', 'educationCard', 'learnedFromEducationCard'));
+        $certificateCard = CertificateCard::all(); // Sertifika bilgisi, Tüm kayıtları çekiyoruz.
+        $courseCard = CourseCard::all(); // Tüm kayıtları çekiyoruz.
+        return view("frontend.pages.cv.cv", compact(
+            'profileCard', 
+            'aboutCard', 
+            'experienceCard', 
+            'learnedFromExperiencesCard', 
+            'educationCard', 
+            'learnedFromEducationCard',
+            'certificateCard',
+            'courseCard'
+        ));
     }
 }
