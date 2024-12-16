@@ -28,7 +28,7 @@ class BlogPageController extends Controller
 
         $categories = BlogCategory::all();
 
-        return view('frontend.pages.blog.blog', compact('articles', 'categories','siteSettings'));
+        return view('frontend.pages.blog.blog', compact('articles', 'categories', 'siteSettings'));
     }
 
     // Blog detay sayfası
@@ -39,10 +39,25 @@ class BlogPageController extends Controller
         $article = BlogArticle::where('slug', $slug)
             ->where('is_visible', true)
             ->firstOrFail();
-    
+
         // Kategorileri al
         $categories = BlogCategory::withCount('articles')->get();
+
+        return view('frontend.pages.blog.detail', compact('article', 'categories', 'siteSettings'));
+    }
+    public function search(Request $request)
+    {
+        $query = $request->input('search'); // Arama kutusundan gelen değer
+
+        // Makaleleri filtrele ve sayfalama uygula
+        $articles = BlogArticle::where('name', 'LIKE', '%' . $query . '%')
+            ->where('is_visible', true)
+            ->orderBy('created_at', 'desc')
+            ->paginate(4);
     
-        return view('frontend.pages.blog.detail', compact('article', 'categories','siteSettings'));
+        // Tüm kategorileri listele
+        $categories = BlogCategory::all();
+
+        return view('frontend.pages.blog.search', compact('articles', 'categories', 'query'));
     }
 }

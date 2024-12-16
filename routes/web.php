@@ -119,7 +119,7 @@ Route::prefix('dashboard')->group(function () {
         Route::get('/{id}/edit', [BlogArticleController::class, 'edit'])->name('blog.articles.edit');// Makale düzenleme formu
         Route::put('/{id}', [BlogArticleController::class, 'update'])->name('blog.articles.update');// Makale güncelleme
         Route::delete('/{id}', [BlogArticleController::class, 'destroy'])->name('blog.articles.destroy');// Makale silme
-        
+
     });
 });
 
@@ -128,6 +128,7 @@ Route::prefix('dashboard')->group(function () {
 // Ziyaretçi
 Route::get("/", [CVPageController::class, 'index'])->name("cv.index");
 Route::get("/blog", [BlogPageController::class, 'index'])->name("blog.index");
+Route::get('/blog/search', [BlogPageController::class, 'search'])->name('blog.search');
 Route::get('/blog/{slug}', [BlogPageController::class, 'show'])->name('blog.detail');
 Route::get("/gallery", [GalleryPageController::class, 'index'])->name("gallery.index");
 Route::get("/support", [SupportPageController::class, 'index'])->name("support.index");

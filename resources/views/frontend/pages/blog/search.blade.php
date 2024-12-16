@@ -16,7 +16,7 @@ Yazılar
     <!-- BLOG BÖLÜMÜ -->
     <div class="row g-0">
         <!-- BLOG CARD -->
-        @include('frontend.partials.blog.blog-item')
+        @include('frontend.partials.blog.searched-item')
     </div>
 </div>
 
@@ -31,4 +31,3 @@ Yazılar
     </div>
 </div>
 @endsection()
-

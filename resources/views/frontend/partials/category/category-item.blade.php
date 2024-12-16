@@ -1,7 +1,7 @@
 @foreach ($categories as $category)
 <div class="category-card">
     <h5 class="m-0">
-        <a href="{{ route('blog.index', ['category' => $category->id]) }}" class="text-decoration-none text-dark">
+        <a href="{{ route('blog.index', ['category' => $category->slug]) }}" class="text-decoration-none text-dark">
         {{ $category->name }}
         </a>
     </h5>
