@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class BlogCategory extends Model
 {
-    protected $connection = 'blog'; 
-    protected $table = 'blog_categories'; 
+    protected $connection = 'blog'; // Doğru veritabanı bağlantısını kullan
+    protected $table = 'blog_categories'; // Tablo a
     protected $fillable = ['name', 'slug', 'description', 'tags', 'image', 'parent_id', 'is_visible'];
 
     public static function boot()
@@ -32,9 +32,11 @@ class BlogCategory extends Model
         $count = 1;
 
         // Benzersiz slug kontrolü
-        while (static::where('slug', $slug)->when($excludeId, function ($query, $excludeId) {
-            return $query->where('id', '!=', $excludeId);
-        })->exists()) {
+        while (
+            static::where('slug', $slug)->when($excludeId, function ($query, $excludeId) {
+                return $query->where('id', '!=', $excludeId);
+            })->exists()
+        ) {
             $slug = $originalSlug . '-' . $count;
             $count++;
         }
@@ -50,5 +52,9 @@ class BlogCategory extends Model
     public function children()
     {
         return $this->hasMany(BlogCategory::class, 'parent_id');
+    }
+    public function articles()
+    {
+        return $this->hasMany(BlogArticle::class, 'category_id');
     }
 }

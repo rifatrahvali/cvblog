@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Dashboard\Blog\BlogArticleController;
 use App\Http\Controllers\Dashboard\Blog\BlogCategoryController;
 use App\Http\Controllers\Dashboard\SiteSettingController;
 use App\Http\Controllers\Frontend\BlogPageController;
@@ -111,6 +112,15 @@ Route::prefix('dashboard')->group(function () {
         Route::put('/{id}', [BlogCategoryController::class, 'update'])->name('blog.categories.update');
         Route::delete('/{id}', [BlogCategoryController::class, 'destroy'])->name('blog.categories.destroy');
     });
+    Route::prefix('blog/articles')->group(function () {
+        Route::get('/', [BlogArticleController::class, 'index'])->name('blog.articles.index');// Blog makalelerini listeleme
+        Route::get('/create', [BlogArticleController::class, 'create'])->name('blog.articles.create');// Yeni makale oluşturma formu
+        Route::post('/', [BlogArticleController::class, 'store'])->name('blog.articles.store');// Yeni makale kaydetme
+        Route::get('/{id}/edit', [BlogArticleController::class, 'edit'])->name('blog.articles.edit');// Makale düzenleme formu
+        Route::put('/{id}', [BlogArticleController::class, 'update'])->name('blog.articles.update');// Makale güncelleme
+        Route::delete('/{id}', [BlogArticleController::class, 'destroy'])->name('blog.articles.destroy');// Makale silme
+        
+    });
 });
 
 // Oturum
@@ -118,6 +128,7 @@ Route::prefix('dashboard')->group(function () {
 // Ziyaretçi
 Route::get("/", [CVPageController::class, 'index'])->name("cv.index");
 Route::get("/blog", [BlogPageController::class, 'index'])->name("blog.index");
+Route::get('/blog/{slug}', [BlogPageController::class, 'show'])->name('blog.detail');
 Route::get("/gallery", [GalleryPageController::class, 'index'])->name("gallery.index");
 Route::get("/support", [SupportPageController::class, 'index'])->name("support.index");
 Route::get("/reference", [ReferencePageController::class, 'index'])->name("reference.index");

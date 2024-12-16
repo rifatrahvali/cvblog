@@ -6,32 +6,38 @@ use Illuminate\Database\Eloquent\Model;
 
 class BlogArticle extends Model
 {
-    protected $connection = 'blog'; // Bağlantı olarak blog veritabanını kullan
-    protected $table = 'blog_articles'; // Tablo ismini belirt
-    protected $fillable = ['title', 'slug', 'content', 'is_visible', 'category_id', 'tags', 'image']; // Doldurulabilir alanlar
+    protected $connection = 'blog'; // Veritabanı bağlantısı
+    protected $table = 'blog_articles'; // Tablo adı
 
-    public function category()
+    protected $fillable = [
+        'name', 'slug', 'category_id', 'tags', 'content', 'image', 'is_visible'
+    ];
+
+    // Slug oluşturma
+    protected static function booted()
     {
-        return $this->belongsTo(BlogCategory::class, 'category_id'); // Kategori ilişkisi
+        static::creating(function ($article) {
+            $article->slug = static::generateUniqueSlug($article->name);
+        });
     }
 
-    // Slug alanını kontrol ederek otomatik doldur
-    public static function boot()
+    public static function generateUniqueSlug($name)
     {
-        parent::boot();
+        $slug = Str::slug($name);
+        $originalSlug = $slug;
+        $count = 1;
 
-        static::creating(function ($article) {
-            $slug = Str::slug($article->title); // Başlıktan slug oluştur
-            $originalSlug = $slug;
-            $count = 1;
+        while (static::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $count;
+            $count++;
+        }
 
-            // Slug benzersiz olana kadar döngüye gir
-            while (static::where('slug', $slug)->exists()) {
-                $slug = $originalSlug . '-' . $count;
-                $count++;
-            }
+        return $slug;
+    }
 
-            $article->slug = $slug; // Slug'ı kaydet
-        });
+    // Kategori ile ilişki
+    public function category()
+    {
+        return $this->belongsTo(BlogCategory::class, 'category_id');
     }
 }

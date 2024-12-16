@@ -41,7 +41,7 @@ Blog Yönetimi
     <div class="custom-card text-center">
         <div class="custom-card-body">
             <div class="custom-card-title">
-                <a href="management-blog-article-card.html">
+                <a href="{{ route('blog.articles.index') }}">
                     <h3 class="fs-2"><i class="bi bi-camera-video me-4"></i>Yazılar</h3>
                 </a>
             </div>
