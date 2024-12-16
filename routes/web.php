@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Dashboard\Blog\BlogCategoryController;
 use App\Http\Controllers\Dashboard\SiteSettingController;
 use App\Http\Controllers\Frontend\BlogPageController;
 use App\Http\Controllers\Frontend\CVPageController;
@@ -18,6 +19,7 @@ use App\Http\Controllers\Dashboard\CV\ExperienceCardController;
 use App\Http\Controllers\Dashboard\CV\EducationCardController;
 use App\Http\Controllers\Dashboard\CV\LearnedFromExperienceCardController;
 use App\Http\Controllers\Dashboard\CV\LearnedFromEducationCardController;
+
 
 
 
@@ -99,6 +101,16 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/cv/courses/{id}/edit', [CourseCardController::class, 'edit'])->name('dashboard.cv.courses.edit');
     Route::put('/cv/courses/{id}', [CourseCardController::class, 'update'])->name('dashboard.cv.courses.update');
     Route::delete('/cv/courses/{id}', [CourseCardController::class, 'destroy'])->name('dashboard.cv.courses.destroy');
+
+    // Blog
+    Route::prefix('blog/categories')->group(function () {
+        Route::get('/', [BlogCategoryController::class, 'index'])->name('blog.categories.index');
+        Route::get('/create', [BlogCategoryController::class, 'create'])->name('blog.categories.create');
+        Route::post('/', [BlogCategoryController::class, 'store'])->name('blog.categories.store');
+        Route::get('/{id}/edit', [BlogCategoryController::class, 'edit'])->name('blog.categories.edit');
+        Route::put('/{id}', [BlogCategoryController::class, 'update'])->name('blog.categories.update');
+        Route::delete('/{id}', [BlogCategoryController::class, 'destroy'])->name('blog.categories.destroy');
+    });
 });
 
 // Oturum

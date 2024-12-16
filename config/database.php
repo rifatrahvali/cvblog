@@ -61,6 +61,20 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
+        'blog' => [
+            'driver' => 'mysql', // Kullanılacak veritabanı sürücüsü
+            'host' => env('DB_BLOG_HOST', '127.0.0.1'), // Blog veritabanının sunucu adresi
+            'port' => env('DB_BLOG_PORT', '3306'), // Blog veritabanının port numarası
+            'database' => env('DB_BLOG_DATABASE', 'db_blog'), // Blog veritabanının ismi
+            'username' => env('DB_BLOG_USERNAME', 'root'), // Blog veritabanı kullanıcı adı
+            'password' => env('DB_BLOG_PASSWORD', ''), // Blog veritabanı şifresi
+            'unix_socket' => env('DB_BLOG_SOCKET', ''), // Unix socket kullanımı (isteğe bağlı)
+            'charset' => 'utf8mb4', // Karakter seti
+            'collation' => 'utf8mb4_unicode_ci', // Karakter eşleme türü
+            'prefix' => '', // Tablo ön eki
+            'strict' => true, // Sıkı SQL modunun kullanımı
+            'engine' => null, // Motor türü (örneğin InnoDB)
+        ],
 
         'mariadb' => [
             'driver' => 'mariadb',
@@ -147,7 +161,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [

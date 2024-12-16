@@ -25,6 +25,29 @@ Blog Yönetimi
 @endsection
 
 @section('dashboard-content')
-<p>Hoş geldiniz! Bu yönetim panelinin blog ve kategori bölüm sayfasıdır.</p>
+<div class="col-lg-6 col-md-6 col-sm-12">
+    <div class="custom-card text-center">
+        <div class="custom-card-body">
+            <div class="custom-card-title">
+                <a href="{{ route('blog.categories.index') }}">
+                    <h3 class="fs-2"><i class="bi bi-envelope-paper-fill me-4"></i>Kategoriler</h3>
+                </a>
+            </div>
+            <p class="custom-card-text">Mevcut blog kategorilerin listelendiği ve eklendiği kısım.</p>
+        </div>
+    </div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-12">
+    <div class="custom-card text-center">
+        <div class="custom-card-body">
+            <div class="custom-card-title">
+                <a href="management-blog-article-card.html">
+                    <h3 class="fs-2"><i class="bi bi-camera-video me-4"></i>Yazılar</h3>
+                </a>
+            </div>
+            <p class="custom-card-text">Mevcut blog yazılarının listelendiği ve eklendiği kısım.</p>
+        </div>
+    </div>
+</div>
 
 @endsection
