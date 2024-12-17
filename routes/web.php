@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\Blog\BlogArticleController;
 use App\Http\Controllers\Dashboard\Blog\BlogCategoryController;
+use App\Http\Controllers\Dashboard\Gallery\GalleryController;
 use App\Http\Controllers\Dashboard\SiteSettingController;
 use App\Http\Controllers\Frontend\BlogPageController;
 use App\Http\Controllers\Frontend\CVPageController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\Dashboard\CV\ExperienceCardController;
 use App\Http\Controllers\Dashboard\CV\EducationCardController;
 use App\Http\Controllers\Dashboard\CV\LearnedFromExperienceCardController;
 use App\Http\Controllers\Dashboard\CV\LearnedFromEducationCardController;
+
 
 
 
@@ -119,8 +121,18 @@ Route::prefix('dashboard')->group(function () {
         Route::get('/{id}/edit', [BlogArticleController::class, 'edit'])->name('blog.articles.edit');// Makale düzenleme formu
         Route::put('/{id}', [BlogArticleController::class, 'update'])->name('blog.articles.update');// Makale güncelleme
         Route::delete('/{id}', [BlogArticleController::class, 'destroy'])->name('blog.articles.destroy');// Makale silme
-
     });
+
+    // Dashboard Galeri Yönetimi
+    Route::prefix('/gallery/photo')->group(function(){
+        Route::get('/', [GalleryController::class, 'index'])->name('dashboard.gallery.index');// listeleme
+        Route::get('/create', [GalleryController::class, 'create'])->name('dashboard.gallery.create');// Yeni oluşturma formu
+        Route::post('/', [GalleryController::class, 'store'])->name('dashboard.gallery.store');//  kaydetme
+        Route::get('/{id}/edit', [GalleryController::class, 'edit'])->name('dashboard.gallery.edit');// düzenleme formu
+        Route::put('/{id}', [GalleryController::class, 'update'])->name('dashboard.gallery.update');//  güncelleme
+        Route::delete('/{id}', [GalleryController::class, 'destroy'])->name('dashboard.gallery.destroy');//  silme
+    });
+
 });
 
 // Oturum
