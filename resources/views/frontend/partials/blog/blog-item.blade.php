@@ -34,7 +34,6 @@
                 </div>
             </div>
         @endforeach
-        {{ $articles->links('vendor.pagination.custom') }}
     @else
         <p class="text-center">Arama sonucuna uygun blog bulunamadı.</p>
     @endif

@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\Blog\BlogArticleController;
 use App\Http\Controllers\Dashboard\Blog\BlogCategoryController;
 use App\Http\Controllers\Dashboard\Gallery\GalleryController;
+use App\Http\Controllers\Dashboard\Reference\ReferenceController;
 use App\Http\Controllers\Dashboard\SiteSettingController;
 use App\Http\Controllers\Frontend\BlogPageController;
 use App\Http\Controllers\Frontend\CVPageController;
@@ -131,6 +132,15 @@ Route::prefix('dashboard')->group(function () {
         Route::get('/{id}/edit', [GalleryController::class, 'edit'])->name('dashboard.gallery.edit');// düzenleme formu
         Route::put('/{id}', [GalleryController::class, 'update'])->name('dashboard.gallery.update');//  güncelleme
         Route::delete('/{id}', [GalleryController::class, 'destroy'])->name('dashboard.gallery.destroy');//  silme
+    });
+    // Dashboard Referans Yönetimi
+    Route::prefix('/reference/info')->group(function(){
+        Route::get('/', [ReferenceController::class, 'index'])->name('dashboard.reference.index');// listeleme
+        Route::get('/create', [ReferenceController::class, 'create'])->name('dashboard.reference.create');// Yeni oluşturma formu
+        Route::post('/', [ReferenceController::class, 'store'])->name('dashboard.reference.store');//  kaydetme
+        Route::get('/{id}/edit', [ReferenceController::class, 'edit'])->name('dashboard.reference.edit');// düzenleme formu
+        Route::put('/{id}', [ReferenceController::class, 'update'])->name('dashboard.reference.update');//  güncelleme
+        Route::delete('/{id}', [ReferenceController::class, 'destroy'])->name('dashboard.reference.destroy');//  silme
     });
 
 });

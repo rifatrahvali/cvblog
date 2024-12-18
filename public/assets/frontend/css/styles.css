@@ -319,7 +319,7 @@ nav.navbar {
     border-radius: 0 !important;
     /* Kare kenarlar */
     object-fit: cover;
-    height: 250px;
+    height: 350px;
     /* Görsellerin yüksekliği */
     width: 100%;
     /* Genişlik */
@@ -336,7 +336,7 @@ nav.navbar {
 
 /* Modal Görseli */
 .modal-content {
-    width: 50%;
+    width: 95%;
     display: flex;
     align-items: center;
     justify-content: center;

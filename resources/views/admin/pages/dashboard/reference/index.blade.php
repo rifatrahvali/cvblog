@@ -16,15 +16,22 @@ referans
 
 @endsection
 
-@section('dashboard-content-direct-back')
+@section('dashboard-content-direct-back'){{ route('admin.dashboard') }}@endsection
 
-@endsection
-
-@section('dashboard-content-direct-back-name')
-
-@endsection
+@section('dashboard-content-direct-back-name') Geri Dön @endsection
 
 @section('dashboard-content')
-<p>Hoş geldiniz! Bu yönetim panelinin referans bölüm sayfasıdır.</p>
+<div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="custom-card text-center">
+        <div class="custom-card-body">
+            <div class="custom-card-title">
+                <a href="{{ route('dashboard.reference.index') }}">
+                    <h3 class="fs-2"><i class="bi bi-camera2 me-4"></i>Referans Kartı</h3>
+                </a>
+            </div>
+            <p class="custom-card-text">Galery bilgilerinin tutulduğu kart alanıdır.</p>
+        </div>
+    </div>
+</div>
 
 @endsection

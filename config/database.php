@@ -87,6 +87,20 @@ return [
             'strict' => true,
             'engine' => null,
         ],
+        'reference' => [
+            'driver' => 'mysql',
+            'host' => env('DB_REFERENCE_HOST'),
+            'port' => env('DB_REFERENCE_PORT'),
+            'database' => env('DB_REFERENCE_DATABASE'),
+            'username' => env('DB_REFERENCE_USERNAME'),
+            'password' => env('DB_REFERENCE_PASSWORD'),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
 
         'mariadb' => [
             'driver' => 'mariadb',
