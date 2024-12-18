@@ -12,6 +12,7 @@ use App\Http\Controllers\Frontend\CVPageController;
 use App\Http\Controllers\Frontend\GalleryPageController;
 use App\Http\Controllers\Frontend\ReferencePageController;
 use App\Http\Controllers\Frontend\SupportPageController;
+use App\Http\Controllers\SupportRequestController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\CV\ProfileCardController;
@@ -155,4 +156,4 @@ Route::get('/blog/{slug}', [BlogPageController::class, 'show'])->name('blog.deta
 Route::get("/gallery", [GalleryPageController::class, 'index'])->name("gallery.index");
 Route::get("/support", [SupportPageController::class, 'index'])->name("support.index");
 Route::get("/reference", [ReferencePageController::class, 'index'])->name("reference.index");
-
+Route::post('/support-request', [SupportRequestController::class, 'store'])->name('support.request');

@@ -2,7 +2,7 @@
 
 @section('dashboard-title', 'Referans Görselleri')
 
-@section('dashboard-content-title')Referans Listesi@endsection
+@section('dashboard-content-title') Referans Listesi @endsection
 
 @section('dashboard-content-direct-link'){{ route('dashboard.reference.create') }}@endsection
 
