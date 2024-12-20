@@ -30,17 +30,26 @@ Geri Dön
         <tr>
             <th>ID</th>
             <th>Email</th>
-            <th>Token</th>
             <th>Son Kullanma</th>
             <th>Kullanıldı mı?</th>
+            <th>İşlemler</th>
         </tr>
         @foreach($invitations as $inv)
             <tr>
                 <td>{{ $inv->id }}</td>
                 <td>{{ $inv->email }}</td>
-                <td>{{ $inv->token }}</td>
                 <td>{{ $inv->expires_at }}</td>
                 <td>{{ $inv->used ? 'Evet' : 'Hayır' }}</td>
+                <td>
+                    <form action="{{ route('invitations.destroy', $inv->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger"
+                            onclick="return confirm('Bu daveti silmek istediğinize emin misiniz?')">
+                            Sil
+                        </button>
+                    </form>
+                </td>
             </tr>
         @endforeach
     </table>

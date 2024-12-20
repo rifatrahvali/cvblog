@@ -37,6 +37,7 @@ Route::post('/logout',[LoginController::class,'logout'])->name('logout');
 Route::get('/invitations',[InvitationController::class,'index'])->name('invitations.index');
 Route::get('/invitations/create',[InvitationController::class,'create'])->name('invitations.create');
 Route::post('/invitations',[InvitationController::class,'store'])->name('invitations.store');
+Route::delete('/invitations/{id}', [InvitationController::class, 'destroy'])->name('invitations.destroy');
 
 // Davet linki
 Route::get('/invite/{token}', function($token){

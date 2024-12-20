@@ -38,9 +38,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{route('invitations.index')}}">
                         <i class="bi bi-people-fill  mb-1"></i>
-                        Kullanıcı Yönetimi
+                        Kullanıcı Daveti
                     </a>
                 </li>
                 <li class="nav-item">
@@ -60,7 +60,7 @@
                         <i class="bi bi-door-closed mb-1"></i>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit">Oturumu Kapat</button>
+                            <button class="btn btn-secondary-sm" type="submit">Oturumu Kapat</button>
                         </form>
                     </a>
 

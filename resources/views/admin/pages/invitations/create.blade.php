@@ -31,7 +31,7 @@ Geri Dön
         <label>Email:</label>
         <input type="email" class="form-control" name="email" required>
     </div>
-    <button type="submit">Davet Gönder</button>
+    <button class="btn btn-secondary mt-1" type="submit">Davet Gönder</button>
 </form>
 
 @endsection

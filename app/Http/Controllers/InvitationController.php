@@ -40,4 +40,11 @@ class InvitationController extends Controller
 
         return redirect()->route('invitations.index')->with('success','Davet oluşturuldu ve mail gönderildi!');
     }
+    public function destroy($id)
+{
+    $invitation = Invitation::findOrFail($id);
+    $invitation->delete();
+
+    return redirect()->route('invitations.index')->with('success', 'Davet başarıyla silindi.');
+}
 }
