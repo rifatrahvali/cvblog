@@ -58,8 +58,12 @@
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2" href="#">
                         <i class="bi bi-door-closed mb-1"></i>
-                        Oturumu Kapat
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit">Oturumu Kapat</button>
+                        </form>
                     </a>
+
                 </li>
 
             </ul>

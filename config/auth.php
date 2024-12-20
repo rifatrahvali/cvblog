@@ -2,6 +2,9 @@
 
 return [
 
+    # 	Session ve Guard Ayarları:
+	#	Varsayılan web guard’ı session tabanlıdır. Ekstra bir şey yapmaya gerek yok, ancak config/auth.php içinde kontrol edilebilir.
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults

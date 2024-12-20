@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\InvitationController;
+
 use App\Http\Controllers\Dashboard\Blog\BlogArticleController;
 use App\Http\Controllers\Dashboard\Blog\BlogCategoryController;
 use App\Http\Controllers\Dashboard\Gallery\GalleryController;
@@ -25,13 +28,27 @@ use App\Http\Controllers\Dashboard\CV\LearnedFromExperienceCardController;
 use App\Http\Controllers\Dashboard\CV\LearnedFromEducationCardController;
 
 
+// Login
+Route::get('/login',[LoginController::class,'showLoginForm'])->name('login');
+Route::post('/login',[LoginController::class,'login']);
+Route::post('/logout',[LoginController::class,'logout'])->name('logout');
 
+// Davet
+Route::get('/invitations',[InvitationController::class,'index'])->name('invitations.index');
+Route::get('/invitations/create',[InvitationController::class,'create'])->name('invitations.create');
+Route::post('/invitations',[InvitationController::class,'store'])->name('invitations.store');
 
+// Davet linki
+Route::get('/invite/{token}', function($token){
+    return redirect()->route('register.show',['token'=>$token]);
+})->name('invite.link');
 
-// Dashboard Rotaları
-Route::prefix('dashboard')->group(function () {
-    Route::get("/login", [LoginController::class, 'index'])->name("admin.dashboard.login");
-    Route::get("/register", [RegisterController::class, 'index'])->name("admin.dashboard.register");
+// Register
+Route::get('/register',[RegisteredUserController::class,'showRegistrationForm'])->name('register.show');
+Route::post('/register',[RegisteredUserController::class,'register'])->name('register');
+
+// Dashboard Rotaları (Yalnızca admin, uzman, yazar)
+Route::prefix('dashboard')->middleware(['auth','rolecheck'])->group(function () {
 
     Route::get('/site-settings/edit', [SiteSettingController::class, 'edit'])->name('site.settings.edit');
     Route::post('/site-settings/update', [SiteSettingController::class, 'update'])->name('site.settings.update');
