@@ -47,6 +47,7 @@ class BlogPageController extends Controller
     }
     public function search(Request $request)
     {
+        $siteSettings = SiteSetting::first();
         $query = $request->input('search'); // Arama kutusundan gelen değer
 
         // Makaleleri filtrele ve sayfalama uygula
@@ -58,6 +59,6 @@ class BlogPageController extends Controller
         // Tüm kategorileri listele
         $categories = BlogCategory::all();
 
-        return view('frontend.pages.blog.search', compact('articles', 'categories', 'query'));
+        return view('frontend.pages.blog.search', compact('articles', 'categories', 'query','siteSettings'));
     }
 }
